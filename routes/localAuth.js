@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const { asyncHandler } = require('../utils/asyncHandler');
 const { ApiError } = require('../utils/ApiError');
 const { registerSchema } = require('../validators/register');
-const { validateRequest, requireLocalAuth } = require('../middlewares');
+const { validateRequest, requireLocalAuth, requireJwtAuth } = require('../middlewares');
 const { loginSchema } = require('../validators/login');
 
 const router = require('express').Router();
@@ -35,9 +35,15 @@ router.post(
 	asyncHandler((req, res, next) => {
 		const token = req.user.generateJWT();
 		const user = req.user;
-		res.cookie('access_token', token, { httpOnly: true, sameSite: true });
-		res.json({ token, user });
+		console.log({ user });
+		res.cookie('access_token', token, { httpOnly: true });
+		res.json({ isAuthenticated: true, user });
 	})
 );
+
+router.get('/logout', requireJwtAuth, (req, res) => {
+	res.clearCookie('access_token');
+	res.json({ user: { email: '', name: '', _id: null }, success: true });
+});
 
 module.exports = router;

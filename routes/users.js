@@ -3,8 +3,8 @@ const { requireJwtAuth } = require('../middlewares');
 
 router.get('/authenticated', requireJwtAuth, (req, res) => {
 	console.log(req.user);
-	const { email, name } = req.user;
-	res.status(200).json({ isAuthenticated: true, user: { email, name } });
+	const { _id, email, name } = req.user;
+	res.status(200).json({ user: { _id, email, name } });
 });
 
 module.exports = router;

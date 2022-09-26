@@ -2,9 +2,10 @@ import React, { useState, useContext } from 'react';
 // import AuthService from '../Services/AuthService';
 import Message from '../Components/Message';
 import { AuthContext } from '../Context/AuthContext';
+import * as api from '../api';
 
 const Login = props => {
-	const [user, setUser] = useState({ username: '', password: '' });
+	const [user, setUser] = useState({ email: '', password: '' });
 	const [message, setMessage] = useState(null);
 	const authContext = useContext(AuthContext);
 
@@ -12,27 +13,32 @@ const Login = props => {
 		setUser({ ...user, [e.target.name]: e.target.value });
 	};
 
-	const onSubmit = e => {
+	const onSubmit = async e => {
 		e.preventDefault();
-		// AuthService.login(user).then(data => {
-		// 	console.log(data);
-		// 	const { isAuthenticated, user, message } = data;
-		// 	if (isAuthenticated) {
-		// 		authContext.setUser(user);
-		// 		authContext.setIsAuthenticated(isAuthenticated);
-		// 		props.history.push('/todos');
-		// 	} else setMessage(message);
-		// });
+		try {
+			const { data } = await api.login(user);
+			const { user: loggedInUser } = data;
+			authContext.setUser(loggedInUser);
+			authContext.setIsAuthenticated(true);
+			props.history.push('/');
+		} catch (e) {
+			console.log({ e });
+			if (e?.response && e.response?.data?.message) {
+				setMessage({ msgBody: e.response?.data.message });
+			} else {
+				setMessage({ msgBody: e?.data?.message });
+			}
+		}
 	};
 
 	return (
 		<div>
 			<form onSubmit={onSubmit}>
 				<h3>Please sign in</h3>
-				<label htmlFor="username" className="sr-only">
-					Username:{' '}
+				<label htmlFor="email" className="sr-only">
+					Email:{' '}
 				</label>
-				<input type="text" name="username" onChange={onChange} className="form-control" placeholder="Enter Username" />
+				<input type="text" name="email" onChange={onChange} className="form-control" placeholder="Enter email" />
 				<label htmlFor="password" className="sr-only">
 					Password:{' '}
 				</label>
