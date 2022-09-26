@@ -7,10 +7,9 @@ import * as api from '../api';
 const Navbar = props => {
 	const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(AuthContext);
 
-	const onClickLogoutHandler = () => {
+	const onClickLogoutHandler = async () => {
 		try {
-			const { data } = api.logout();
-			console.log({ data });
+			const { data } = await api.logout();
 			setUser(data.user);
 			setIsAuthenticated(false);
 		} catch (e) {
@@ -38,12 +37,12 @@ const Navbar = props => {
 		return (
 			<>
 				<Link to="/">
-					<li className="nav-item nav-link">Home</li>
+					<li className="nav-item nav-link">Games</li>
 				</Link>
 				<Link to="/todos">
-					<li className="nav-item nav-link">Todos</li>
+					<li className="nav-item nav-link">Teams</li>
 				</Link>
-				{user.role === 'admin' ? (
+				{user?.role === 'admin' ? (
 					<Link to="/admin">
 						<li className="nav-item nav-link">Admin</li>
 					</Link>

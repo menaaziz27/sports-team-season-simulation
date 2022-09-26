@@ -14,7 +14,7 @@ export default ({ children }) => {
 				const { data } = await api.isAuthenticated();
 				console.log({ data });
 				setUser(data.user);
-				setIsAuthenticated(data.isAuthenticated);
+				setIsAuthenticated(true);
 				setIsLoaded(true);
 			} catch (e) {
 				setIsLoaded(true);

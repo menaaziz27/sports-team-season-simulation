@@ -43,7 +43,7 @@ router.post(
 
 router.get('/logout', requireJwtAuth, (req, res) => {
 	res.clearCookie('access_token');
-	res.json({ user: { email: '', name: '', _id: null }, success: true });
+	res.json({ user: { email: '', name: '', _id: null } });
 });
 
 module.exports = router;
