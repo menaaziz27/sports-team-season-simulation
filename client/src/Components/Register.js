@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import AuthService from '../Services/AuthService';
 import Message from '../Components/Message';
-// import axios from 'axios';
 import * as api from '../api';
 
 const Register = props => {
@@ -24,9 +22,9 @@ const Register = props => {
 	};
 
 	const onSubmit = async e => {
+		e.preventDefault();
 		try {
-			e.preventDefault();
-			const { data } = await api.register(user);
+			await api.register(user);
 			resetForm();
 			setMessage({ msgBody: 'Account created successfully.' });
 			timerID = setTimeout(() => {

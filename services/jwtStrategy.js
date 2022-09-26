@@ -8,13 +8,9 @@ const secretOrKey = isProduction ? process.env.JWT_SECRET_PROD : process.env.JWT
 
 const cookieExtractor = req => {
 	let token = null;
-	if (req && req.cookies) {
-		token = req.cookies['access_token'];
+	if (req && req?.cookies) {
+		token = req?.cookies['access_token'];
 	}
-
-	console.log(`cookies: ${req.cookies}`);
-	console.log({ token });
-
 	return token;
 };
 
