@@ -54,12 +54,25 @@ const Navbar = props => {
 		);
 	};
 	return (
-		<nav className="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto">
 			<Link to="/">
 				<div className="navbar-brand">Soccer Season</div>
 			</Link>
-			<div className="collapse navbar-collapse" id="navbarText">
-				<ul className="navbar-nav mr-auto">{!isAuthenticated ? unauthenticatedNavBar() : authenticatedNavBar()}</ul>
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarTogglerDemo02"
+				aria-controls="navbarTogglerDemo02"
+				aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+				<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+					{!isAuthenticated ? unauthenticatedNavBar() : authenticatedNavBar()}
+				</ul>
 			</div>
 		</nav>
 	);
