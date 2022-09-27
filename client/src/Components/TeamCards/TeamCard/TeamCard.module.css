@@ -1,0 +1,72 @@
+.card {
+	box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+	background-color: #fff;
+	border-radius: 6px;
+	overflow: hidden;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+}
+
+.card__img {
+	display: block;
+	width: 100%;
+	object-fit: contain;
+	margin: 0 auto;
+}
+
+.card__body {
+	padding: 1.25rem;
+}
+
+.team__name {
+	font-weight: 700;
+	position: relative;
+}
+
+.team__name::before {
+	content: '';
+	position: absolute;
+	left: -100%;
+	transition: left 0.5s ease-in-out;
+}
+
+.card:hover .team__name::before {
+	content: '';
+	position: absolute;
+	width: 45%;
+	height: 3px;
+	bottom: -4px;
+	left: 0%;
+	background-color: #ff6b1a;
+}
+
+.team__coach {
+	color: rgb(182, 181, 181);
+	font-size: 14px;
+}
+
+.card__btn {
+	color: #fff;
+	font-weight: 500;
+	display: inline-block;
+	min-width: 115px;
+	line-height: 1.33333;
+	font-size: 0.83333rem;
+	padding-top: 0.66668rem;
+	padding-bottom: 0.66668rem;
+	padding-left: 0.8889rem;
+	padding-right: 0.8889rem;
+	border-radius: 4px;
+	background-color: #263746;
+	transition: all 0.3s ease-in-out;
+}
+
+.card__btn:hover {
+	box-shadow: 2px 2px 8px 0 #a3b6c7;
+	background-color: #263746;
+	color: #fff;
+}

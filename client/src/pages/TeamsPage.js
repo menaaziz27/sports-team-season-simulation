@@ -1,7 +1,12 @@
 import React from 'react';
+import TeamCards from '../Components/TeamCards/TeamCards';
 
 const TeamsPage = () => {
-	return <h1>TeamsPage</h1>;
+	return (
+		<div className="container">
+			<TeamCards />
+		</div>
+	);
 };
 
 export default TeamsPage;
