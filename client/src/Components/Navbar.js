@@ -19,9 +19,9 @@ const Navbar = props => {
 	const unauthenticatedNavBar = () => {
 		return (
 			<>
-				<Link to="/">
+				{/* <Link to="/">
 					<li className="nav-item nav-link">Home</li>
-				</Link>
+				</Link> */}
 				<Link to="/login">
 					<li className="nav-item nav-link">Login</li>
 				</Link>
@@ -35,9 +35,6 @@ const Navbar = props => {
 	const authenticatedNavBar = () => {
 		return (
 			<>
-				<Link to="/games">
-					<li className="nav-item nav-link">Games</li>
-				</Link>
 				<Link to="/teams">
 					<li className="nav-item nav-link">Teams</li>
 				</Link>
