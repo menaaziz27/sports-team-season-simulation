@@ -4,6 +4,8 @@ const { playerSchema } = require('./Player');
 const teamSchema = new Schema(
 	{
 		coach: String,
+		name: String,
+		image: String,
 		players: [playerSchema],
 		points: {
 			type: Number,
