@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema(
 	{
@@ -15,6 +16,18 @@ const userSchema = new Schema(
 
 const isProduction = process.env.NODE_ENV === 'production';
 const secretOrKey = isProduction ? process.env.JWT_SECRET_PROD : process.env.JWT_SECRET_DEV;
+
+userSchema.pre('save', async function (next) {
+	if (!this.isModified('password')) {
+		return next();
+	}
+	try {
+		this.password = await bcrypt.hash(this.password, 8);
+		return next();
+	} catch (e) {
+		return next(error);
+	}
+});
 
 userSchema.methods.generateJWT = function () {
 	const token = jwt.sign(
