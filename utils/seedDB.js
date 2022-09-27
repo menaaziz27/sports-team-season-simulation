@@ -38,6 +38,7 @@ exports.seedDb = async () => {
 
 				const player = new Player({
 					name: faker.name.fullName(),
+					country: faker.address.country(),
 					age: faker.datatype.number({ min: 17, max: 37 }),
 					avatar: faker.image.avatar(),
 					stamina: faker.datatype.number({ min: 55, max: 100 }),
@@ -46,6 +47,7 @@ exports.seedDb = async () => {
 					strength: faker.datatype.number({ min: 55, max: 100 }),
 					power: faker.datatype.number({ min: 55, max: 100 }),
 					position: currentPosition,
+					team: team,
 				});
 				team.players.push(player);
 				await player.save();
