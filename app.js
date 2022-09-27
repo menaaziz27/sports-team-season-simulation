@@ -5,6 +5,7 @@ require('dotenv').config();
 const { connectToDb } = require('./utils/db');
 const { requireJwtAuth, errorHandler, notFound } = require('./middlewares');
 const cookieParser = require('cookie-parser');
+const { seedDb } = require('./utils/seedDB');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -51,7 +52,8 @@ app.use(notFound);
 app.use(errorHandler);
 
 connectToDb()
-	.then(_ => {
+	.then(async _ => {
+		await seedDb();
 		console.log('connected to db');
 		app.listen(PORT, () => console.log(`app listening on port ${PORT}!`));
 	})
