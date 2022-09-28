@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './Components/Navbar';
+import Navbar from './Components/Navbar/Navbar';
 import Login from './Components/Login';
 import Home from './Components/Home';
 import Register from './Components/Register';

@@ -1,0 +1,21 @@
+.header {
+	background-color: white;
+	position: relative;
+	-webkit-box-shadow: 0 0 10px #ddd;
+	-moz-box-shadow: 0 0 10px #ddd;
+	box-shadow: 0 0 10px #ddd;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	position: relative;
+}
+
+/* 
+
+.navlink:hover {
+	color: #ff6b1a !important;
+} */
