@@ -1,8 +1,8 @@
 import React from 'react';
 import Navbar from './Components/Navbar/Navbar';
-import Login from './Components/Login';
+import Login from './Components/Login/Login';
 import Home from './Components/Home';
-import Register from './Components/Register';
+import Register from './Components/Register/Register';
 import PrivateRoute from './hocs/PrivateRoute';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import GamesPage from './pages/GamesPage';

@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 // import AuthService from '../Services/AuthService';
-import Message from '../Components/Message';
-import { AuthContext } from '../Context/AuthContext';
-import * as api from '../api';
-
+import Message from '../Message';
+import { AuthContext } from '../../Context/AuthContext';
+import * as api from '../../api';
+import styles from './Login.module.css';
 const Login = props => {
 	const [user, setUser] = useState({ email: '', password: '' });
 	const [message, setMessage] = useState(null);
@@ -32,28 +32,30 @@ const Login = props => {
 	};
 
 	return (
-		<div>
-			<form onSubmit={onSubmit}>
-				<h3>Please sign in</h3>
-				<label htmlFor="email" className="sr-only">
-					Email:{' '}
-				</label>
-				<input type="text" name="email" onChange={onChange} className="form-control" placeholder="Enter email" />
-				<label htmlFor="password" className="sr-only">
-					Password:{' '}
-				</label>
-				<input
-					type="password"
-					name="password"
-					onChange={onChange}
-					className="form-control"
-					placeholder="Enter Password"
-				/>
-				<button className="btn btn-lg btn-primary btn-block" type="submit">
-					Log in{' '}
-				</button>
-			</form>
-			{message ? <Message message={message} /> : null}
+		<div className={styles.login}>
+			<div className={`container ${styles.container}`}>
+				<form onSubmit={onSubmit} className={styles.form}>
+					<h3 className={styles.header}>Please sign in</h3>
+					<input
+						type="text"
+						name="email"
+						onChange={onChange}
+						className={styles['form-control']}
+						placeholder="exmaple@email.com"
+					/>
+					<input
+						type="password"
+						name="password"
+						onChange={onChange}
+						className={styles['form-control']}
+						placeholder="*********"
+					/>
+					<button className="btn btn-lg btn-primary btn-block" type="submit">
+						Log in{' '}
+					</button>
+				</form>
+				{message ? <Message message={message} /> : null}
+			</div>
 		</div>
 	);
 };

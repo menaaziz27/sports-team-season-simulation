@@ -12,10 +12,30 @@
 	align-items: center;
 	flex-wrap: wrap;
 	position: relative;
+	height: 60px;
 }
 
-/* 
+.logo {
+	width: 40px;
+	height: 40px;
+}
 
-.navlink:hover {
-	color: #ff6b1a !important;
-} */
+.logoLink:hover {
+	border: 0;
+	background-color: transparent !important;
+}
+
+.mainNav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.navLink {
+	height: 60px;
+	padding: 12px 30px;
+	overflow: hidden;
+	font-size: 18px;
+	color: #000;
+	transition: background-color 0.3s ease-in-out;
+}

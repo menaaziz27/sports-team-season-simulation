@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
 import styles from './Navbar.module.css';
 import * as api from '../../api';
-
+import logo from '../../assets/logo.svg';
 const Navbar = props => {
 	const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(AuthContext);
 
@@ -21,10 +21,14 @@ const Navbar = props => {
 		return (
 			<>
 				<li>
-					<Link to="/login">Login</Link>
+					<Link to="/login" className={styles.navLink}>
+						Login
+					</Link>
 				</li>
 				<li>
-					<Link to="/register">Regsiter</Link>
+					<Link to="/register" className={styles.navLink}>
+						Regsiter
+					</Link>
 				</li>
 			</>
 		);
@@ -34,10 +38,12 @@ const Navbar = props => {
 		return (
 			<>
 				<li>
-					<Link to="/teams">Teams</Link>
+					<Link to="/teams" className={styles.navLink}>
+						Teams
+					</Link>
 				</li>
 				<li onClick={onClickLogoutHandler}>
-					<Link>Logout</Link>
+					<Link className={styles.navLink}>Logout</Link>
 				</li>
 			</>
 		);
@@ -45,33 +51,12 @@ const Navbar = props => {
 	return (
 		<header className={styles.header}>
 			<div className={`container ${styles.container}`}>
-				<div className="text-3xl font-bold underline">
-					<a href="/">Soccer Season</a>
-				</div>
+				<Link to="/" className={styles.logoLink}>
+					<img src={logo} alt="logo" className={styles.logo} />
+				</Link>
 				<ul className={styles.mainNav}>{!isAuthenticated ? unauthenticatedNavBar() : authenticatedNavBar()}</ul>
 			</div>
 		</header>
-		// <nav className="navbar navbar-expand-lg navbar-light bg-light mx-auto">
-		// 	<Link to="/">
-		// 		<div className="navbar-brand">Soccer Season</div>
-		// 	</Link>
-		// 	<button
-		// 		className="navbar-toggler"
-		// 		type="button"
-		// 		data-toggle="collapse"
-		// 		data-target="#navbarTogglerDemo02"
-		// 		aria-controls="navbarTogglerDemo02"
-		// 		aria-expanded="false"
-		// 		aria-label="Toggle navigation">
-		// 		<span className="navbar-toggler-icon"></span>
-		// 	</button>
-
-		// 	<div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-		// 		<ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-		// 			{!isAuthenticated ? unauthenticatedNavBar() : authenticatedNavBar()}
-		// 		</ul>
-		// 	</div>
-		// </nav>
 	);
 };
 
