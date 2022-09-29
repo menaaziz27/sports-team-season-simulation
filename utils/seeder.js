@@ -1,4 +1,5 @@
 const { faker } = require('@faker-js/faker');
+const Game = require('../models/Game');
 const { Player } = require('../models/Player');
 const Team = require('../models/Team');
 const User = require('../models/User');
@@ -15,6 +16,7 @@ const importData = async () => {
 		await User.deleteMany({});
 		await Team.deleteMany({});
 		await Player.deleteMany({});
+		await Game.deleteMany();
 
 		// create user
 		await new User({ name: 'admin', email: 'admin@example.com', password: 'testing_user' }).save();
@@ -88,6 +90,7 @@ const destroyData = async () => {
 		await User.deleteMany();
 		await Team.deleteMany();
 		await Player.deleteMany();
+		await Game.deleteMany();
 
 		console.log(`Data destroyed!!`.red.bold);
 		process.exit();
