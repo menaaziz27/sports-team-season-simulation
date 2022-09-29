@@ -7,6 +7,7 @@ const teamSchema = new Schema(
 		name: String,
 		image: String,
 		players: [playerSchema],
+		games: [{ type: Schema.Types.ObjectId, ref: 'Game', default: [] }],
 		points: {
 			type: Number,
 			default: 0,
@@ -19,6 +20,7 @@ const teamSchema = new Schema(
 			type: Number,
 			default: 0,
 		},
+		overall_power: Number,
 	},
 	{
 		timestamps: true,

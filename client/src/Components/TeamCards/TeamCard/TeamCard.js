@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './TeamCard.module.css';
 
 const TeamCard = ({ _id, coach, name, image }) => {
@@ -10,9 +11,9 @@ const TeamCard = ({ _id, coach, name, image }) => {
 				<p className={styles.team__coach}>
 					Coach: <em>{coach}</em>
 				</p>
-				<a href={`/teams/${_id}`} className={styles.card__btn}>
+				<Link to={`/teams/${_id}`} className={styles.card__btn}>
 					More details
-				</a>
+				</Link>
 			</div>
 		</div>
 	);

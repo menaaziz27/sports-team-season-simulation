@@ -7,8 +7,9 @@
 html,
 body {
 	scroll-behavior: smooth;
-	background-color: #8bc6ec;
-	background-image: repeating-linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+	background-color: #f6f6f6;
+	/* background-color: #8bc6ec;
+	background-image: repeating-linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%); */
 }
 
 ul {
@@ -49,4 +50,9 @@ a:hover {
 	.container {
 		width: 1170px;
 	}
+}
+
+.section-padding {
+	padding-top: 40px;
+	padding-bottom: 40px;
 }

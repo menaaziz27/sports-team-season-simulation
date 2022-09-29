@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
 // import AuthService from '../Services/AuthService';
-import Message from '../Message';
+import Message from '../../Components/Message';
 import { AuthContext } from '../../Context/AuthContext';
 import * as api from '../../api';
 import styles from './Login.module.css';
+
 const Login = props => {
 	const [user, setUser] = useState({ email: '', password: '' });
 	const [message, setMessage] = useState(null);

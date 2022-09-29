@@ -18,6 +18,7 @@ const importData = async () => {
 
 		// create user
 		await new User({ name: 'admin', email: 'admin@example.com', password: 'testing_user' }).save();
+		await new User({ name: 'Azzouz', email: 'azzouz@gmail.com', password: 'asdasd' }).save();
 
 		// team names
 		const teams = [

@@ -38,6 +38,11 @@ const Navbar = props => {
 		return (
 			<>
 				<li>
+					<Link to="/games" className={styles.navLink}>
+						Games
+					</Link>
+				</li>
+				<li>
 					<Link to="/teams" className={styles.navLink}>
 						Teams
 					</Link>

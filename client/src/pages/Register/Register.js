@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Message from '../Message';
+import Message from '../../Components/Message';
 import * as api from '../../api';
 
 const Register = props => {

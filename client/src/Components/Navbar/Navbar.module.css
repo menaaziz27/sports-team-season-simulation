@@ -10,9 +10,8 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	flex-wrap: wrap;
 	position: relative;
-	height: 60px;
+	min-height: 60px;
 }
 
 .logo {
@@ -29,13 +28,35 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .navLink {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 60px;
 	padding: 12px 30px;
 	overflow: hidden;
 	font-size: 18px;
 	color: #000;
 	transition: background-color 0.3s ease-in-out;
+}
+
+@media (max-width: 400px) {
+	.container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.mainNav {
+		width: 100%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.mainNav > li {
+		width: 100%;
+	}
 }
