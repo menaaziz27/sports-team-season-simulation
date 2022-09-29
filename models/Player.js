@@ -11,6 +11,7 @@ const playerSchema = new Schema(
 		dribbling: Number,
 		strength: Number,
 		power: Number,
+		overall_power: Number,
 		position: {
 			type: String,
 			enum: ['Stricker', 'Midfielder', 'Central Defenders', 'Defender', 'Right Winger', 'Left Winger', 'Goal Keeper'],

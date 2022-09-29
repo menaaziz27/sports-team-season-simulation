@@ -50,7 +50,7 @@ const Login = props => {
 						className={styles['form-control']}
 						placeholder="*********"
 					/>
-					<button className="btn btn-lg btn-primary btn-block" type="submit">
+					<button className={styles.btn} type="submit">
 						Log in{' '}
 					</button>
 				</form>
