@@ -2,6 +2,7 @@ const { faker } = require('@faker-js/faker');
 const { Player } = require('../models/Player');
 const Team = require('../models/Team');
 const User = require('../models/User');
+const { allPlayers } = require('./constants');
 require('colors');
 const { connectToDb } = require('./db');
 
@@ -17,6 +18,8 @@ const importData = async () => {
 
 		// create user
 		await new User({ name: 'admin', email: 'admin@example.com', password: 'testing_user' }).save();
+
+		// team names
 		const teams = [
 			'FC Barcelona',
 			'Real Madrid',
@@ -37,36 +40,51 @@ const importData = async () => {
 		});
 
 		await Promise.all(
-			teamPromises.map(async team => {
-				const positions = [
-					'Stricker',
-					'Midfielder',
-					'Central Defenders',
-					'Defender',
-					'Right Winger',
-					'Left Winger',
-					'Goal Keeper',
-				];
+			teamPromises.map(async (team, index) => {
+				const teamPlayers = allPlayers[index];
 
-				for (let i = 0; i < 5; i++) {
-					const currentPosition = positions[Math.floor(Math.random() * positions.length)];
-
-					const player = new Player({
-						name: faker.name.fullName(),
-						country: faker.address.country(),
-						age: faker.datatype.number({ min: 17, max: 37 }),
-						avatar: faker.image.avatar(),
-						stamina: faker.datatype.number({ min: 55, max: 100 }),
-						speed: faker.datatype.number({ min: 55, max: 100 }),
-						dribbling: faker.datatype.number({ min: 55, max: 100 }),
-						strength: faker.datatype.number({ min: 55, max: 100 }),
-						power: faker.datatype.number({ min: 55, max: 100 }),
-						position: currentPosition,
+				for await (const player of teamPlayers) {
+					const currentPlayer = new Player({
+						name: player.name,
+						country: player.country,
+						age: player.age,
+						avatar: player.avatar,
+						stamina: player.stamina,
+						speed: player.speed,
+						dribbling: player.dribbling,
+						strength: player.strength,
+						power: player.power,
+						position: player.position,
 						team: team,
 					});
-					team.players.push(player);
-					await player.save();
+
+					const NUM_OF_ATRIBUTES = 5;
+					console.log({ currentPlayer });
+					// calculate the total power of the player
+					const overAllPower = Math.ceil(
+						(currentPlayer.stamina +
+							currentPlayer.speed +
+							currentPlayer.dribbling +
+							currentPlayer.strength +
+							currentPlayer.power) /
+							NUM_OF_ATRIBUTES
+					);
+
+					console.log({ overAllPower });
+					currentPlayer.overall_power = overAllPower;
+
+					team.players.push(currentPlayer);
+					await currentPlayer.save();
 				}
+
+				const sumOfPlayersPower = team.players.reduce((acc, player) => player.overall_power + acc, 0);
+
+				console.log({ sumOfPlayersPower });
+
+				const NUM_OF_PLAYERS = 5;
+
+				team.overall_power = Math.ceil(sumOfPlayersPower / NUM_OF_PLAYERS);
+				console.log({ teamOverAllPower: team.overall_power });
 
 				await team.save();
 			})

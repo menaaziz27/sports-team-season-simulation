@@ -1,4 +1,4 @@
-const players = [
+const allPlayers = [
 	[
 		{
 			name: 'Eileen Feeney',
@@ -435,4 +435,4 @@ const players = [
 	],
 ];
 
-module.exports = { players };
+module.exports = { allPlayers };
