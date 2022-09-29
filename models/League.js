@@ -1,17 +1,16 @@
 const { Schema, model } = require('mongoose');
 
-const gameSchema = new Schema(
+const leagueSchema = new Schema(
 	{
-		team1: {
+		winner: {
 			type: Schema.Types.ObjectId,
 			ref: 'Team',
 		},
-		team2: {
+		loser: {
 			type: Schema.Types.ObjectId,
 			ref: 'Team',
 		},
-		team1_goals: Number,
-		team2_goals: Number,
+		isStarted: Boolean,
 	},
 	{
 		timestamps: true,
@@ -19,6 +18,6 @@ const gameSchema = new Schema(
 	}
 );
 
-const Game = model('Game', gameSchema);
+const League = model('League', leagueSchema);
 
-module.exports = Game;
+module.exports = League;

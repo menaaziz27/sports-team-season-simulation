@@ -31,7 +31,7 @@ const importData = async () => {
 			'Villarreal CF',
 		];
 		// create 7 teams with their players (5 players)
-		const teamPromises = [...Array(7).keys()].map((index, i) => {
+		const teamPromises = [...Array(7).keys()].map(index => {
 			const team = new Team({
 				coach: faker.company.name(),
 				name: teams[index],
