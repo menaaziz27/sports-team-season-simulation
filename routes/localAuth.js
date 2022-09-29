@@ -20,9 +20,7 @@ router.post(
 
 		if (userExist) throw new ApiError('User already exists.', 400);
 
-		const hashedPassword = await bcrypt.hash(password, 8);
-
-		const user = new User({ email, password: hashedPassword, name });
+		const user = new User({ email, password, name });
 
 		await user.save();
 		res.json(user);

@@ -16,6 +16,7 @@ const Login = props => {
 	const onSubmit = async e => {
 		e.preventDefault();
 		try {
+			console.log({ user });
 			const { data } = await api.login(user);
 			const { user: loggedInUser } = data;
 			authContext.setUser(loggedInUser);
@@ -50,11 +51,11 @@ const Login = props => {
 						className={styles['form-control']}
 						placeholder="*********"
 					/>
+					{message ? <Message message={message} /> : null}
 					<button className={styles.btn} type="submit">
 						Log in{' '}
 					</button>
 				</form>
-				{message ? <Message message={message} /> : null}
 			</div>
 		</div>
 	);
