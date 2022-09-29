@@ -77,6 +77,7 @@ exports.startGame = async (team1, team2) => {
 		team1.points += 1;
 		team1.numOfGames += 1;
 	}
+
 	await Promise.all([await game.save(), await team1.save(), await team2.save()]);
 
 	return game;

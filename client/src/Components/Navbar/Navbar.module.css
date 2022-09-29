@@ -40,7 +40,7 @@
 	overflow: hidden;
 	font-size: 18px;
 	color: #000;
-	transition: background-color 0.3s ease-in-out;
+	transition: background-color 0.3s ease-in-out, border 0.1s ease-in-out;
 }
 
 @media (max-width: 400px) {

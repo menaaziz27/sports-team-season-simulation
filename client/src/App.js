@@ -23,7 +23,7 @@ function App() {
 	return (
 		<Router>
 			<Navbar />
-			<Route exact path="/" component={Home} />
+			<PrivateRoute exact path="/" component={Home} />
 			<Route exact path="/login" component={Login} />
 			<Route exact path="/register" component={Register} />
 			<PrivateRoute exact path="/games" component={GamesPage} />

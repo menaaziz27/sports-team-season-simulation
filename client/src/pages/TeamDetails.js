@@ -31,8 +31,8 @@ const TeamDetails = () => {
 				<div className="container">
 					<div className="topBar">
 						<div className="leftSide">
-							<img src="" alt="flag" />
-							<p>Barcelona</p>
+							<img src={teamDetails.avatar} alt="flag" />
+							<p>{teamDetails.name}</p>
 						</div>
 
 						<p>Points: {teamDetails.points}</p>
