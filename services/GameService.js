@@ -24,11 +24,6 @@ exports.startGame = async (team1, team2) => {
 
 	const propOfDraw = +(1 - propOfTeam1 - propOfTeam2).toFixed(1); // 0.4
 
-	console.log({ propOfTeam1 });
-	console.log({ propOfTeam2 });
-	console.log({ propOfDraw });
-	console.log(team1Obj);
-	console.log(team2Obj);
 	// if team1 propbabilty is higher than team2 -> team1 might win
 	const game = new Game();
 	const rand = Math.random();

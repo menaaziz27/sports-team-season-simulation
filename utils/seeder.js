@@ -2,7 +2,7 @@ const { faker } = require('@faker-js/faker');
 const { Player } = require('../models/Player');
 const Team = require('../models/Team');
 const User = require('../models/User');
-const { allPlayers } = require('./constants');
+const { allPlayers, teams } = require('./constants');
 require('colors');
 const { connectToDb } = require('./db');
 
@@ -20,16 +20,6 @@ const importData = async () => {
 		await new User({ name: 'admin', email: 'admin@example.com', password: 'testing_user' }).save();
 		await new User({ name: 'Azzouz', email: 'azzouz@gmail.com', password: 'asdasd' }).save();
 
-		// team names
-		const teams = [
-			'FC Barcelona',
-			'Real Madrid',
-			'Sevilla FC',
-			'Valencia CF',
-			'Levante UD',
-			'Granada CF',
-			'Villarreal CF',
-		];
 		// create 7 teams with their players (5 players)
 		const teamPromises = [...Array(7).keys()].map(index => {
 			const team = new Team({
@@ -60,7 +50,6 @@ const importData = async () => {
 					});
 
 					const NUM_OF_ATRIBUTES = 5;
-					console.log({ currentPlayer });
 					// calculate the total power of the player
 					const overAllPower = Math.ceil(
 						(currentPlayer.stamina +
@@ -71,7 +60,6 @@ const importData = async () => {
 							NUM_OF_ATRIBUTES
 					);
 
-					console.log({ overAllPower });
 					currentPlayer.overall_power = overAllPower;
 
 					team.players.push(currentPlayer);
@@ -80,12 +68,9 @@ const importData = async () => {
 
 				const sumOfPlayersPower = team.players.reduce((acc, player) => player.overall_power + acc, 0);
 
-				console.log({ sumOfPlayersPower });
-
 				const NUM_OF_PLAYERS = 5;
 
 				team.overall_power = Math.ceil(sumOfPlayersPower / NUM_OF_PLAYERS);
-				console.log({ teamOverAllPower: team.overall_power });
 
 				await team.save();
 			})

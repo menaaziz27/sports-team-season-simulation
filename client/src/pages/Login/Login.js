@@ -17,14 +17,12 @@ const Login = props => {
 	const onSubmit = async e => {
 		e.preventDefault();
 		try {
-			console.log({ user });
 			const { data } = await api.login(user);
 			const { user: loggedInUser } = data;
 			authContext.setUser(loggedInUser);
 			authContext.setIsAuthenticated(true);
 			props.history.push('/');
 		} catch (e) {
-			console.log({ e });
 			if (e?.response && e.response?.data?.message) {
 				setMessage({ msgBody: e.response?.data.message });
 			} else {

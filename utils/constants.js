@@ -435,4 +435,7 @@ const allPlayers = [
 	],
 ];
 
-module.exports = { allPlayers };
+// team names
+const teams = ['FC Barcelona', 'Real Madrid', 'Sevilla FC', 'Valencia CF', 'Levante UD', 'Granada CF', 'Villarreal CF'];
+
+module.exports = { allPlayers, teams };

@@ -11,7 +11,6 @@ const PlayerDetails = () => {
 			try {
 				if (id) {
 					const { data } = await api.getPlayer(id);
-					console.log({ data });
 					setPlayer(data);
 					setIsLoading(false);
 				}

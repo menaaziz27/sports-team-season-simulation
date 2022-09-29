@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('colors');
 
 exports.connectToDb = async () => {
 	try {
@@ -7,6 +8,7 @@ exports.connectToDb = async () => {
 			useUnifiedTopology: true,
 		});
 	} catch (e) {
-		console.log(err);
+		console.log(`${e}`.red.bold);
+		process.exit(1);
 	}
 };

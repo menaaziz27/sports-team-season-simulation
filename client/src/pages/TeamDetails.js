@@ -11,7 +11,6 @@ const TeamDetails = () => {
 			try {
 				if (id) {
 					const { data } = await api.getTeamDetails(id);
-					console.log({ data });
 					setTeamDetails(data);
 					setIsLoading(false);
 				}

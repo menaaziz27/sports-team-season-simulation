@@ -33,7 +33,6 @@ router.post(
 	asyncHandler((req, res, next) => {
 		const token = req.user.generateJWT();
 		const user = req.user;
-		console.log({ user });
 		res.cookie('access_token', token, { httpOnly: true });
 		res.json({ isAuthenticated: true, user });
 	})
