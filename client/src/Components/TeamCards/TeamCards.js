@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as api from '../../api';
 import TeamCard from './TeamCard/TeamCard';
-import styles from './TeamCards.module.css';
+import './teams.css';
 
 const TeamCards = () => {
 	const [teams, setTeams] = useState([]);
@@ -18,9 +18,9 @@ const TeamCards = () => {
 	}, []);
 
 	return (
-		<div className={styles.teams}>
+		<div className="teams">
 			{isLoading ? (
-				<div className="container mt-3 text-center">Loading ...</div>
+				<div className="container">Loading ...</div>
 			) : (
 				teams?.map(({ _id, coach, name, image }) => (
 					<TeamCard key={_id} _id={_id} coach={coach} name={name} image={image} />

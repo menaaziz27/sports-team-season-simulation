@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Message from '../../Components/Message';
-import * as api from '../../api';
-import worldcupLogo from '../../assets/images/world-cup-svgrepo-com.svg';
+import Message from '../Components/Message';
+import * as api from '../api';
+import worldcupLogo from '../assets/images/world-cup-svgrepo-com.svg';
 import { Link } from 'react-router-dom';
 const Register = props => {
 	const [user, setUser] = useState({ name: '', password: '', email: '' });
@@ -44,7 +44,7 @@ const Register = props => {
 		<div className="auth">
 			<div className="auth__container container">
 				<form onSubmit={onSubmit} className="auth__form">
-					<img src={worldcupLogo} alt="world cup" className="auth__worldcup" />
+					{/* <img src={worldcupLogo} alt="world cup" className="auth__worldcup" /> */}
 					<h3 className="auth__text">Create an account</h3>
 					<input type="text" name="name" onChange={onChange} className="form-control" placeholder="John Doe" />
 					<input

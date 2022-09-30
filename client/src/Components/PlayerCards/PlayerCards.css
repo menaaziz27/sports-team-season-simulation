@@ -1,0 +1,94 @@
+.playercards__container {
+	display: flex;
+	flex-direction: column;
+	flex-flow: column nowrap;
+	gap: 20px;
+	margin-bottom: 40px;
+}
+
+.playercard {
+	width: auto;
+	border: 1px solid #ccc;
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	border-radius: 4px;
+	cursor: pointer;
+	border: 1px solid transparent;
+	color: #fff;
+	background-color: var(--dark-black);
+	transition: all 0.3s ease-in-out;
+}
+
+.playercard:hover {
+	box-shadow: 0 0 15px rgba(0 0 0 / 10%);
+	transform: translateX(3px);
+}
+
+.playercard__leftSide {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.playercard__img {
+	width: 80px;
+	border-radius: 50%;
+}
+
+.playercard__name {
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.playercard__rightSide {
+	display: flex;
+	align-items: center;
+	padding-right: 10px;
+}
+
+.playercard__rightSide div {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	text-align: center;
+	font-size: 14px;
+	font-weight: 700;
+	padding: 10px;
+}
+
+.playercard__rightSide div p {
+	margin-bottom: 5px;
+}
+
+.playercard__rightSide div p:nth-child(2) {
+	color: var(--light-green);
+}
+
+@media (max-width: 800px) {
+	.playercards__container {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 20px;
+	}
+
+	.playercard,
+	.playercard__leftSide {
+		flex-direction: column;
+	}
+	.playercard__rightSide {
+		flex-flow: row wrap;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 500px) {
+	.playercard {
+		width: 300px;
+		margin: 0 auto;
+	}
+	.playercard__rightSide div {
+		padding: 0;
+	}
+}

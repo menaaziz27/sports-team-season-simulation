@@ -22,12 +22,12 @@ const Navbar = props => {
 		return (
 			<>
 				<li>
-					<Link to="/login" className="nav-link">
+					<Link to="/login" className="header__navLink">
 						Login
 					</Link>
 				</li>
 				<li>
-					<Link to="/register" className="nav-link">
+					<Link to="/register" className="header__navLink">
 						Regsiter
 					</Link>
 				</li>
@@ -39,17 +39,17 @@ const Navbar = props => {
 		return (
 			<>
 				<li>
-					<Link to="/games" className="nav-link">
+					<Link to="/games" className="header__navLink">
 						Games
 					</Link>
 				</li>
 				<li>
-					<Link to="/teams" className="nav-link">
+					<Link to="/teams" className="header__navLink">
 						Teams
 					</Link>
 				</li>
 				<li onClick={onClickLogoutHandler}>
-					<Link to="/login" className="nav-link">
+					<Link to="/login" className="header__navLink">
 						Logout
 					</Link>
 				</li>
@@ -59,10 +59,10 @@ const Navbar = props => {
 	return (
 		<header className="header">
 			<div className={`container header__container`}>
-				<Link to="/" className="logo-link">
-					<img src={logo} alt="logo" className="logo" />
+				<Link to="/" className="link">
+					<img src={logo} alt="header__logo" className="header__logo" />
 				</Link>
-				<ul className="main-nav">{!isAuthenticated ? unauthenticatedNavBar() : authenticatedNavBar()}</ul>
+				<ul className="header__mainNav">{!isAuthenticated ? unauthenticatedNavBar() : authenticatedNavBar()}</ul>
 			</div>
 		</header>
 	);

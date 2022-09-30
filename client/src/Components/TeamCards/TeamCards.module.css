@@ -1,8 +1,0 @@
-.teams {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-	place-items: center;
-	grid-gap: 20px;
-	margin: 40px 0;
-	color: black;
-}

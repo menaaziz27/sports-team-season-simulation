@@ -1,9 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
 html,
 body {
 	scroll-behavior: smooth;
 	background-color: #f6f6f6;
-	/* background-color: #8bc6ec;
-	background-image: repeating-linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%); */
+	font-family: 'Comic Neue', monospace;
+	font-weight: 500;
+}
+
+:root {
+	--dark-green: #5dd9c1;
+	--light-green: #acfcd9;
+	--light-purple: #b084cc;
+	--dark-purple: #665687;
+	--dark-black: #190933;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
 }
 
 ul {
@@ -15,17 +30,11 @@ a {
 	text-decoration: none;
 }
 
-.nav-link:hover {
-	background-color: #fafafa;
-	border-bottom: 3px solid #8bc6ec;
-	color: #9599e2;
-}
-
 .link {
 	transition: all 0.3s ease-in-out;
 }
 .link:hover {
-	color: #8bc6ec;
+	color: var(--hover-color);
 }
 
 .container {
@@ -34,6 +43,7 @@ a {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 /* Small */
 @media (min-width: 768px) {
 	.container {
@@ -72,7 +82,7 @@ a {
 
 .auth__form {
 	position: relative;
-	min-height: 65%;
+	min-height: 60%;
 	max-height: auto;
 	background-color: #fff;
 	width: 100%;
@@ -85,20 +95,23 @@ a {
 	box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
 }
 
-.auth__worldcup {
+/* .auth__worldcup {
 	position: absolute;
 	top: -56px;
 	left: 50%;
 	transform: translateX(-50%);
 	width: 100px;
 	height: 100px;
-}
+} */
 
 .auth__text {
 	font-size: 36px;
 	margin: 20px 0;
 	text-align: center;
 	white-space: nowrap;
+	background: linear-gradient(to right, #9599e2, #8bc6ec);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .form-control {
