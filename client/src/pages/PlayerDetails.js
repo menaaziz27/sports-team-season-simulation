@@ -23,7 +23,7 @@ const PlayerDetails = () => {
 		return () => {
 			setPlayer({});
 		};
-	}, []);
+	}, [id]);
 
 	return (
 		<>

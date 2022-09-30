@@ -5,7 +5,7 @@ import styles from './Navbar.module.css';
 import * as api from '../../api';
 import logo from '../../assets/logo.svg';
 const Navbar = props => {
-	const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(AuthContext);
+	const { isAuthenticated, setIsAuthenticated, setUser } = useContext(AuthContext);
 
 	const onClickLogoutHandler = async () => {
 		try {
@@ -48,7 +48,9 @@ const Navbar = props => {
 					</Link>
 				</li>
 				<li onClick={onClickLogoutHandler}>
-					<Link className={styles.navLink}>Logout</Link>
+					<Link to="/login" className={styles.navLink}>
+						Logout
+					</Link>
 				</li>
 			</>
 		);

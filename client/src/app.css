@@ -56,3 +56,36 @@ a:hover {
 	padding-top: 40px;
 	padding-bottom: 40px;
 }
+
+.waving-line.center:after {
+	left: 50%;
+	transform: translateX(-50%);
+}
+.waving-line:after {
+	position: absolute;
+	content: '';
+	left: 0;
+	bottom: 0;
+	width: 114px;
+	height: 12px;
+	animation: waving-line 12s linear infinite;
+	-webkit-animation: waving-line 12s linear infinite;
+	background: url('assets/images/waving-line.png');
+}
+/* Waving Line Animation */
+@keyframes waving-line {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -200px 0;
+	}
+}
+@-webkit-keyframes waving-line {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -200px 0;
+	}
+}

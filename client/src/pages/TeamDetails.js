@@ -11,6 +11,7 @@ const TeamDetails = () => {
 			try {
 				if (id) {
 					const { data } = await api.getTeamDetails(id);
+					console.log({ data });
 					setTeamDetails(data);
 					setIsLoading(false);
 				}
@@ -23,7 +24,7 @@ const TeamDetails = () => {
 		return () => {
 			setTeamDetails({});
 		};
-	}, []);
+	}, [id]);
 	return (
 		<>
 			{isLoading && <div>Loading ..</div>}
@@ -31,7 +32,7 @@ const TeamDetails = () => {
 				<div className="container">
 					<div className="topBar">
 						<div className="leftSide">
-							<img src={teamDetails.avatar} alt="flag" />
+							<img src={teamDetails?.image} alt="flag" />
 							<p>{teamDetails.name}</p>
 						</div>
 
@@ -39,7 +40,7 @@ const TeamDetails = () => {
 					</div>
 					<div className="cards">
 						{teamDetails.players.map(player => (
-							<Link to={`/players/${player._id}`}>
+							<Link to={`/players/${player._id}`} key={player._id}>
 								<div className="card">
 									<div className="card__img">
 										<img src={player.avatar} alt="player_photo" />

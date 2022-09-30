@@ -436,6 +436,22 @@ const allPlayers = [
 ];
 
 // team names
-const teams = ['FC Barcelona', 'Real Madrid', 'Sevilla FC', 'Valencia CF', 'Levante UD', 'Granada CF', 'Villarreal CF'];
+const teams = [
+	{ name: 'FC Barcelona', flag: 'https://logos-world.net/wp-content/uploads/2020/04/Barcelona-Logo.png' },
+	{ name: 'Real Madrid', flag: 'https://logos-world.net/wp-content/uploads/2020/06/Real-Madrid-Logo.png' },
+	{ name: 'Sevilla FC', flag: 'https://logos-world.net/wp-content/uploads/2020/06/Sevilla-Logo-1966-1979.jpg' },
+	{ name: 'Valencia CF', flag: 'https://logos-world.net/wp-content/uploads/2020/11/Valencia-Logo-2001-2012.png' },
+	{
+		name: 'Levante UD',
+		flag: 'https://thumbs.dreamstime.com/b/levante-ud-oficial-logo-collection-vector-logos-most-famous-football-teams-world-format-available-ai-illustrator-144988755.jpg',
+	},
+	{ name: 'Granada CF', flag: 'https://pbs.twimg.com/media/FX-uIEtXEAEfYJD?format=jpg&name=small' },
+	{
+		name: 'Villarreal CF',
+		flag: 'https://www.seekpng.com/png/detail/140-1408635_villarreal-badge-flag-villarreal-villarreal-cf-logo-png.png',
+	},
+];
+// const teams = ['FC Barcelona', 'Real Madrid', 'Sevilla FC', 'Valencia CF', 'Levante UD', 'Granada CF', 'Villarreal CF'];
+// const flags = ['', '', '', '', '', ''];
 
 module.exports = { allPlayers, teams };

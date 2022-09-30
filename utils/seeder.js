@@ -26,8 +26,8 @@ const importData = async () => {
 		const teamPromises = [...Array(7).keys()].map(index => {
 			const team = new Team({
 				coach: faker.company.name(),
-				name: teams[index],
-				image: faker.image.avatar(),
+				name: teams[index].name,
+				image: teams[index].flag,
 			});
 			return team;
 		});
