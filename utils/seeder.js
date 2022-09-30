@@ -3,6 +3,7 @@ const Game = require('../models/Game');
 const { Player } = require('../models/Player');
 const Team = require('../models/Team');
 const User = require('../models/User');
+const League = require('../models/League');
 const { allPlayers, teams } = require('./constants');
 require('colors');
 const { connectToDb } = require('./db');
@@ -21,6 +22,7 @@ const importData = async () => {
 		// create user
 		await new User({ name: 'admin', email: 'admin@example.com', password: 'testing_user' }).save();
 		await new User({ name: 'Azzouz', email: 'azzouz@gmail.com', password: 'asdasd' }).save();
+		await new League({}).save();
 
 		// create 7 teams with their players (5 players)
 		const teamPromises = [...Array(7).keys()].map(index => {

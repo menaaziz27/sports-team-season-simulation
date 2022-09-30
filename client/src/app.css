@@ -71,6 +71,7 @@ a {
 .auth {
 	background-color: #f6f6f6;
 }
+
 .auth__container {
 	height: 500px;
 	min-height: calc(100vh - 60px);
@@ -88,27 +89,22 @@ a {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	grid-gap: 20px;
 	gap: 30px;
 	border-radius: 8px;
 	padding: 50px;
 	box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
 }
 
-/* .auth__worldcup {
-	position: absolute;
-	top: -56px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 100px;
-	height: 100px;
-} */
+@media (max-width: 500px) {
+	.auth__form {
+		padding: 10px;
+	}
+}
 
 .auth__text {
 	font-size: 36px;
 	margin: 20px 0;
 	text-align: center;
-	white-space: nowrap;
 	background: linear-gradient(to right, #9599e2, #8bc6ec);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;

@@ -31,8 +31,8 @@ router.get(
 		]);
 		if (teamOne.status === 'fulfilled' && teamTwo.status === 'fulfilled') {
 			const gameResult = await startGame(teamOne?.value, teamTwo?.value);
-			const games = await Game.find({});
-			res.status(200).json(games);
+			console.log({ gameResult });
+			res.status(200).json(gameResult);
 		}
 	})
 );

@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import Message from '../Components/Message';
 import { AuthContext } from '../Context/AuthContext';
 import * as api from '../api';
-import worldcupLogo from '../assets/images/world-cup-svgrepo-com.svg';
 import { Link } from 'react-router-dom';
 
 const Login = props => {

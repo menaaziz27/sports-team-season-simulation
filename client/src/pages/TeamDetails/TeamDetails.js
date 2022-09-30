@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import * as api from '../../api';
 import PlayerCards from '../../Components/PlayerCards/PlayerCards';
-import PlayerCard from '../../Components/PlayerCards/PlayerCard/PlayerCard';
 import './TeamDetails.css';
 
 const TeamDetails = () => {
@@ -54,16 +53,3 @@ const TeamDetails = () => {
 };
 
 export default TeamDetails;
-
-{
-	/* <div className="teamDetails__cards__card">
-								<div className="card__img">
-									<img src={player.avatar} alt="player_photo" />
-								</div>
-								<div className="card__content">
-									<p className="card__name">Name: {player.name}</p>
-									<p className="card__name">Position: {player.position}</p>
-									<p className="card__name">total power: {player.overall_power}%</p>
-								</div>
-							</div> */
-}

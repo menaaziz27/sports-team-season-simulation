@@ -1,0 +1,21 @@
+.home__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 40px;
+	min-height: calc(100vh - 180px);
+	padding: 20px;
+}
+
+.start-season {
+	position: relative;
+}
+
+.season-btn {
+	color: var(--light-green);
+	background-color: var(--dark-black);
+}
+
+.season-btn:hover .season-btn-text {
+	transform: scale(1.1);
+}

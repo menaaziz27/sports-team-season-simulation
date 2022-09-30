@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './TeamCard.module.css';
 import '../teams.css';
 
 const TeamCard = ({ _id, coach, name, image }) => {

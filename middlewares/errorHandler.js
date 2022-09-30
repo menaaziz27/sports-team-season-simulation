@@ -8,12 +8,16 @@ const notFound = (req, res, next) => {
 const errorHandler = (error, req, res, next) => {
 	let { statusCode, message, stack } = error;
 	statusCode = statusCode || 500;
-	res.status(statusCode).json({
+
+	const err = {
 		status: 'error',
 		statusCode: statusCode,
 		message: message || 'Internal Server Error',
 		...(process.env.NODE_ENV !== 'production' && { stack }),
-	});
+	};
+
+	console.log({ err });
+	res.status(statusCode).json(err);
 };
 
 module.exports = { errorHandler, notFound };
