@@ -6,22 +6,17 @@ import TeamStatistics from '../Components/TeamStatistics/TeamStatistics';
 import Loader from '../Components/Loader/Loader';
 
 const Home = () => {
-	// const [isLeagueStarted, setIsLeagueStarted] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [message, setMessage] = useState(null);
 	const [leagueResult, setLeagueResult] = useState([]);
 	const [isLeagueStarted, setIsLeagueStarted] = useState(false);
-
-	console.log({ leagueResult });
-	console.log({ isLeagueStarted });
 
 	const getLeagueResult = async () => {
 		try {
 			setIsLoading(true);
 			const { data } = await api.getLeagueResult(); // all teams sorted by scores & goals.
 
-			console.log({ data });
-			if (data.length) {
+			if (data.length && data[0].points !== 0) {
 				setLeagueResult(data);
 				setIsLeagueStarted(true);
 			}
@@ -41,26 +36,19 @@ const Home = () => {
 
 	useEffect(() => {
 		// watch leagueResult if initialized then get first two teams and start a game between them and show the winner of championship
-	}, [leagueResult]);
+		const startChampionship = async () => {
+			if (leagueResult.length) {
+				const [team1, team2] = leagueResult;
+				console.log({ team1 });
+				console.log({ team2 });
+				const result = await api.startGame(team1?.name, team2?.name);
 
-	// useEffect(() => {
-	// 	const leagueStatus = async () => {
-	// 		try {
-	// 			setIsLoading(true);
-	// 			const { data: league } = await api.getLeagueStatus();
-	// 			console.log({ league });
-	// 			if (league.length) setIsLeagueStarted(true);
-	// 			setIsLoading(false);
-	// 		} catch (e) {
-	// 			if (e?.response && e.response?.data?.message) {
-	// 				setMessage({ msgBody: e.response?.data.message });
-	// 			} else {
-	// 				setMessage({ msgBody: e?.data?.message });
-	// 			}
-	// 		}
-	// 	};
-	// 	leagueStatus();
-	// }, []);
+				console.log({ result });
+			}
+		};
+
+		startChampionship();
+	}, [leagueResult]);
 
 	const onStartSeasonHandler = async () => {
 		setIsLoading(true);
