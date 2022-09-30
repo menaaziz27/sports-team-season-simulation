@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { requireJwtAuth } = require('../middlewares');
+const Game = require('../models/Game');
 const League = require('../models/League');
 const Team = require('../models/Team');
-const { startLeague } = require('../services/LeagueService');
+const { startLeague, resetAllSeasonData } = require('../services/LeagueService');
 const { asyncHandler } = require('../utils/asyncHandler');
 
 router.get(
@@ -10,7 +11,7 @@ router.get(
 	requireJwtAuth,
 	asyncHandler(async (req, res, next) => {
 		const leagues = await League.find({});
-		res.status(200).json(leagues[0]);
+		res.status(200).json(leagues);
 	})
 );
 
@@ -18,18 +19,37 @@ router.get(
 	'/start-league',
 	requireJwtAuth,
 	asyncHandler(async (req, res, next) => {
-		const league = await League.find({});
+		const games = await Game.find({});
 
-		if (league.isStarted) {
-			// reset previous one and start new one
-		}
+		// if there're games -> there's season already exist so reset all games, scores and start a new one.
+		if (games.length) await resetAllSeasonData();
 
 		const teams = await Team.find({});
 
-		// start league
 		const leagueResult = await startLeague(teams);
+		await new League({ isStarted: true }).save();
 
 		res.status(200).json(leagueResult);
+	})
+);
+
+router.get(
+	'/reset',
+	requireJwtAuth,
+	asyncHandler(async (req, res, next) => {
+		await resetAllSeasonData();
+
+		res.status(200).json({ message: 'season has been resetted' });
+	})
+);
+
+router.get(
+	'/result',
+	requireJwtAuth,
+	asyncHandler(async (req, res, next) => {
+		const result = await Team.find({}).sort({ points: -1, goals: -1 });
+
+		res.status(200).json(result);
 	})
 );
 

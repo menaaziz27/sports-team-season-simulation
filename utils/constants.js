@@ -435,7 +435,6 @@ const allPlayers = [
 	],
 ];
 
-// team names
 const teams = [
 	{ name: 'FC Barcelona', flag: 'https://logos-world.net/wp-content/uploads/2020/04/Barcelona-Logo.png' },
 	{ name: 'Real Madrid', flag: 'https://logos-world.net/wp-content/uploads/2020/06/Real-Madrid-Logo.png' },
@@ -451,7 +450,5 @@ const teams = [
 		flag: 'https://www.seekpng.com/png/detail/140-1408635_villarreal-badge-flag-villarreal-villarreal-cf-logo-png.png',
 	},
 ];
-// const teams = ['FC Barcelona', 'Real Madrid', 'Sevilla FC', 'Valencia CF', 'Levante UD', 'Granada CF', 'Villarreal CF'];
-// const flags = ['', '', '', '', '', ''];
 
 module.exports = { allPlayers, teams };

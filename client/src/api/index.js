@@ -11,3 +11,4 @@ export const getTeamDetails = id => API.get(`teams/${id}`);
 export const getPlayer = id => API.get(`players/${id}`);
 export const getLeagueStatus = () => API.get(`leagues/status`);
 export const startLeague = () => API.get(`leagues/start-league`);
+export const getLeagueResult = () => API.get(`leagues/result`);

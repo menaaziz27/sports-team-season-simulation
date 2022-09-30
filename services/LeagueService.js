@@ -1,3 +1,6 @@
+const Game = require('../models/Game');
+const League = require('../models/League');
+const Team = require('../models/Team');
 const { startGame } = require('./GameService');
 
 exports.startLeague = async teams => {
@@ -24,4 +27,12 @@ exports.startLeague = async teams => {
 	}
 
 	return allmatches;
+};
+
+exports.resetAllSeasonData = async () => {
+	return Promise.all([
+		await Game.deleteMany({}),
+		await Team.updateMany({}, { numOfGames: 0, goals: 0, points: 0, games: [] }),
+		await League.deleteMany({}),
+	]);
 };

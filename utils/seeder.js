@@ -18,11 +18,12 @@ const importData = async () => {
 		await Team.deleteMany({});
 		await Player.deleteMany({});
 		await Game.deleteMany();
+		await League.deleteMany();
 
 		// create user
 		await new User({ name: 'admin', email: 'admin@example.com', password: 'testing_user' }).save();
 		await new User({ name: 'Azzouz', email: 'azzouz@gmail.com', password: 'asdasd' }).save();
-		await new League({}).save();
+		// await new League({}).save();
 
 		// create 7 teams with their players (5 players)
 		const teamPromises = [...Array(7).keys()].map(index => {
@@ -89,10 +90,11 @@ const importData = async () => {
 
 const destroyData = async () => {
 	try {
-		await User.deleteMany();
-		await Team.deleteMany();
-		await Player.deleteMany();
+		await User.deleteMany({});
+		await Team.deleteMany({});
+		await Player.deleteMany({});
 		await Game.deleteMany();
+		await League.deleteMany();
 
 		console.log(`Data destroyed!!`.red.bold);
 		process.exit();
