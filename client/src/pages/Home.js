@@ -12,6 +12,9 @@ const Home = () => {
 	const [leagueResult, setLeagueResult] = useState([]);
 	const [isLeagueStarted, setIsLeagueStarted] = useState(false);
 
+	console.log({ leagueResult });
+	console.log({ isLeagueStarted });
+
 	const getLeagueResult = async () => {
 		try {
 			setIsLoading(true);
@@ -20,6 +23,7 @@ const Home = () => {
 			console.log({ data });
 			if (data.length) {
 				setLeagueResult(data);
+				setIsLeagueStarted(true);
 			}
 			setIsLoading(false);
 		} catch (e) {
