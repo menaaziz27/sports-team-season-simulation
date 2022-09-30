@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Message from '../../Components/Message';
 import * as api from '../../api';
-
+import worldcupLogo from '../../assets/images/world-cup-svgrepo-com.svg';
+import { Link } from 'react-router-dom';
 const Register = props => {
 	const [user, setUser] = useState({ name: '', password: '', email: '' });
 	const [message, setMessage] = useState(null);
@@ -40,48 +41,29 @@ const Register = props => {
 	};
 
 	return (
-		<div>
-			<form onSubmit={onSubmit}>
-				<h3>Please Register</h3>
-				<label htmlFor="name" className="sr-only">
-					Name:{' '}
-				</label>
-				<input
-					type="text"
-					name="name"
-					value={user.name}
-					onChange={onChange}
-					className="form-control"
-					placeholder="Enter name (admin/user)"
-				/>
-				<label htmlFor="email" className="sr-only">
-					Email:{' '}
-				</label>
-				<input
-					type="text"
-					name="email"
-					value={user.email}
-					onChange={onChange}
-					className="form-control"
-					placeholder="Enter email"
-				/>
-				<label htmlFor="password" className="sr-only">
-					Password:{' '}
-				</label>
-				<input
-					type="password"
-					name="password"
-					value={user.password}
-					onChange={onChange}
-					className="form-control"
-					placeholder="Enter Password"
-				/>
-
-				<button className="btn " type="submit">
-					Register
-				</button>
-			</form>
-			{message ? <Message message={message} /> : null}
+		<div className="auth">
+			<div className="auth__container container">
+				<form onSubmit={onSubmit} className="auth__form">
+					<img src={worldcupLogo} alt="world cup" className="auth__worldcup" />
+					<h3 className="auth__text">Create an account</h3>
+					<input type="text" name="name" onChange={onChange} className="form-control" placeholder="John Doe" />
+					<input
+						type="text"
+						name="email"
+						onChange={onChange}
+						className="form-control"
+						placeholder="exmaple@email.com"
+					/>
+					<input type="password" name="password" onChange={onChange} className="form-control" placeholder="*********" />
+					{message ? <Message message={message} /> : null}
+					<button className="btn primary" type="submit">
+						Register{' '}
+					</button>
+					<Link to="/login" className="link">
+						<p>Already have an account?</p>
+					</Link>
+				</form>
+			</div>
 		</div>
 	);
 };
