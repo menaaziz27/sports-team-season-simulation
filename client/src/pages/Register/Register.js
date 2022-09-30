@@ -77,7 +77,7 @@ const Register = props => {
 					placeholder="Enter Password"
 				/>
 
-				<button className="btn btn-lg btn-primary btn-block" type="submit">
+				<button className="btn " type="submit">
 					Register
 				</button>
 			</form>

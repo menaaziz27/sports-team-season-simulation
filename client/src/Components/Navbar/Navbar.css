@@ -6,7 +6,7 @@
 	box-shadow: 0 0 10px #ddd;
 }
 
-.container {
+.header__container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -19,19 +19,19 @@
 	height: 40px;
 }
 
-.logoLink:hover {
+.logo-link:hover {
 	border: 0;
 	background-color: transparent !important;
 }
 
-.mainNav {
+.main-nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
 }
 
-.navLink {
+.nav-link {
 	display: flex;
 	justify-content: center;
 	align-items: center;

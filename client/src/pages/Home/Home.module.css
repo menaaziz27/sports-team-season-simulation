@@ -10,7 +10,7 @@
 .startSeason {
 	position: relative;
 }
-
+/* 
 .btn {
 	composes: btn from '../../Components/Button/Button.module.css';
 }
@@ -27,4 +27,4 @@
 	bottom: -35px;
 	white-space: nowrap;
 	opacity: 0;
-}
+} */

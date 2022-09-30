@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
-// import AuthService from '../Services/AuthService';
 import Message from '../../Components/Message';
 import { AuthContext } from '../../Context/AuthContext';
 import * as api from '../../api';
-import styles from './Login.module.css';
+import './Login.css';
+import worldcupLogo from '../../assets/images/world-cup-svgrepo-com.svg';
 
 const Login = props => {
 	const [user, setUser] = useState({ email: '', password: '' });
@@ -32,26 +32,21 @@ const Login = props => {
 	};
 
 	return (
-		<div className={styles.login}>
-			<div className={`container ${styles.container}`}>
-				<form onSubmit={onSubmit} className={styles.form}>
-					<h3 className={styles.header}>Please sign in</h3>
+		<div className="login">
+			<div className="container login__container">
+				<form onSubmit={onSubmit} className="login__form">
+					<img src={worldcupLogo} alt="world cup" className="login__worldcup" />
+					<h3 className="login__text">Please sign in</h3>
 					<input
 						type="text"
 						name="email"
 						onChange={onChange}
-						className={styles['form-control']}
+						className="form-control"
 						placeholder="exmaple@email.com"
 					/>
-					<input
-						type="password"
-						name="password"
-						onChange={onChange}
-						className={styles['form-control']}
-						placeholder="*********"
-					/>
+					<input type="password" name="password" onChange={onChange} className="form-control" placeholder="*********" />
 					{message ? <Message message={message} /> : null}
-					<button className={styles.btn} type="submit">
+					<button className="btn primary" type="submit">
 						Log in{' '}
 					</button>
 				</form>

@@ -5,7 +5,7 @@ const Home = () => (
 	<main className="section-padding">
 		<div className={`container ${styles.container}`}>
 			<div className={styles.startSeason}>
-				<Button className={`${styles.btn}`} primary text="Start Season" />
+				<Button className="btn" primary text="Start Season" />
 				<h1>Can we predict the result?</h1>
 			</div>
 		</div>

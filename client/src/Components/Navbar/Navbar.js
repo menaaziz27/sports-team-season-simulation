@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
-import styles from './Navbar.module.css';
+import './Navbar.css';
 import * as api from '../../api';
 import logo from '../../assets/logo.svg';
+
 const Navbar = props => {
 	const { isAuthenticated, setIsAuthenticated, setUser } = useContext(AuthContext);
 
@@ -21,12 +22,12 @@ const Navbar = props => {
 		return (
 			<>
 				<li>
-					<Link to="/login" className={styles.navLink}>
+					<Link to="/login" className="nav-link">
 						Login
 					</Link>
 				</li>
 				<li>
-					<Link to="/register" className={styles.navLink}>
+					<Link to="/register" className="nav-link">
 						Regsiter
 					</Link>
 				</li>
@@ -38,17 +39,17 @@ const Navbar = props => {
 		return (
 			<>
 				<li>
-					<Link to="/games" className={styles.navLink}>
+					<Link to="/games" className="nav-link">
 						Games
 					</Link>
 				</li>
 				<li>
-					<Link to="/teams" className={styles.navLink}>
+					<Link to="/teams" className="nav-link">
 						Teams
 					</Link>
 				</li>
 				<li onClick={onClickLogoutHandler}>
-					<Link to="/login" className={styles.navLink}>
+					<Link to="/login" className="nav-link">
 						Logout
 					</Link>
 				</li>
@@ -56,12 +57,12 @@ const Navbar = props => {
 		);
 	};
 	return (
-		<header className={styles.header}>
-			<div className={`container ${styles.container}`}>
-				<Link to="/" className={styles.logoLink}>
-					<img src={logo} alt="logo" className={styles.logo} />
+		<header className="header">
+			<div className={`container header__container`}>
+				<Link to="/" className="logo-link">
+					<img src={logo} alt="logo" className="logo" />
 				</Link>
-				<ul className={styles.mainNav}>{!isAuthenticated ? unauthenticatedNavBar() : authenticatedNavBar()}</ul>
+				<ul className="main-nav">{!isAuthenticated ? unauthenticatedNavBar() : authenticatedNavBar()}</ul>
 			</div>
 		</header>
 	);

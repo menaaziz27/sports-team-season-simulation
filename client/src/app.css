@@ -57,6 +57,33 @@ a:hover {
 	padding-bottom: 40px;
 }
 
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 16px 12px;
+	border-radius: 4px;
+	border: none;
+	outline: 0;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	font-size: 25px;
+}
+.primary {
+	background-color: #9599e2;
+	color: #fff;
+}
+.secondary {
+	background-color: #fff;
+	color: #9599e2;
+}
+
+.btn:hover {
+	box-shadow: 0 0 15px rgba(0 0 0 / 15%);
+	transform: rotate(1deg);
+	/* transform: scale(1.1); */
+}
+
 .waving-line.center:after {
 	left: 50%;
 	transform: translateX(-50%);
