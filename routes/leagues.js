@@ -53,4 +53,16 @@ router.get(
 	})
 );
 
+router.get(
+	'/final',
+	requireJwtAuth,
+	asyncHandler(async (req, res, next) => {
+		const team1 = req?.query.team1;
+		const team2 = req?.query.team2;
+		if (team1 === team2) return new Error('Cannot perform this action');
+		const result = await finalGame(team1, team2);
+
+		res.status(200).json(result);
+	})
+);
 module.exports = router;

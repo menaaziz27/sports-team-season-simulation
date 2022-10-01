@@ -154,7 +154,6 @@ a {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 40px;
 	min-height: calc(100vh - 180px);
 	padding: 20px;
 }
@@ -184,23 +183,31 @@ a {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
-	margin-top: 40px;
 }
 
 .league__status {
 	position: relative;
 	margin-bottom: 20px;
 	font-size: 30px;
+	z-index: 99;
+	width: fit-content;
+	white-space: nowrap;
 }
 
-.league__status::before {
+.highlight::before {
 	content: '';
 	position: absolute;
-	width: 176px;
-	height: 3px;
-	background-color: var(--dark-green);
-	bottom: -5px;
+	width: 100%;
+	height: 17px;
+	background-color: var(--light-green);
+	bottom: -1px;
 	left: 0;
+	z-index: -1;
+	transition: all 0.3s ease-in-out;
+}
+
+.highlight:hover:before {
+	height: 100%;
 }
 
 .stats__card {

@@ -11,6 +11,7 @@ const Home = () => {
 	const [leagueResult, setLeagueResult] = useState([]);
 	const [isLeagueStarted, setIsLeagueStarted] = useState(false);
 
+	console.log({ leagueResult });
 	const getLeagueResult = async () => {
 		try {
 			setIsLoading(true);
@@ -34,21 +35,16 @@ const Home = () => {
 		getLeagueResult();
 	}, []);
 
-	useEffect(() => {
-		// watch leagueResult if initialized then get first two teams and start a game between them and show the winner of championship
-		const startChampionship = async () => {
-			if (leagueResult.length) {
-				const [team1, team2] = leagueResult;
-				console.log({ team1 });
-				console.log({ team2 });
-				const result = await api.startGame(team1?.name, team2?.name);
+	// useEffect(() => {
+	// 	// watch leagueResult if initialized then get first two teams and start a game between them and show the winner of championship
+	// 	const startChampionship = async () => {
+	// 		if (leagueResult.length) {
 
-				console.log({ result });
-			}
-		};
+	// 		}
+	// 	};
 
-		startChampionship();
-	}, [leagueResult]);
+	// 	startChampionship();
+	// }, [leagueResult]);
 
 	const onStartSeasonHandler = async () => {
 		setIsLoading(true);
@@ -58,8 +54,13 @@ const Home = () => {
 			await getLeagueResult();
 			// startChmpionship based on league result
 			// get league result
-			// const [team1, team2] = await api.getLeagueResult()
-			// api.startChampionship(team1, team2)
+			// ! bug is here
+			// const [team1, team2] = leagueResult;
+			// console.log({ team1 });
+			// console.log({ team2 });
+			// const { data: finalResult } = await api.startChampionship(team1, team2);
+			// console.log({ finalResult });
+
 			setIsLoading(false);
 		} catch (e) {
 			if (e?.response && e.response?.data?.message) {
@@ -89,29 +90,33 @@ const Home = () => {
 
 						{message ? <Message message={message} /> : null}
 
-						<div className="league__container container">
-							{isLeagueStarted ? (
-								<h3 className="league__status">League Result</h3>
-							) : (
-								<h3 className="league__status">Start Your League</h3>
-							)}
-							{isLeagueStarted &&
-								leagueResult &&
-								leagueResult?.map(({ _id, name, image, points, goals, numOfGames }, index) => (
-									<TeamStatistics
-										key={_id}
-										_id={_id}
-										name={name}
-										image={image}
-										points={points}
-										goals={goals}
-										numOfGames={numOfGames}
-										index={index}
-									/>
-								))}
+						<div className="section-padding">
+							<div className="league__container container">
+								{isLeagueStarted ? (
+									<h3 className="league__status highlight">League Result</h3>
+								) : (
+									<h3 className="league__status highlight">Start Your League</h3>
+								)}
+								{isLeagueStarted &&
+									leagueResult &&
+									leagueResult?.map(({ _id, name, image, points, goals, numOfGames }, index) => (
+										<TeamStatistics
+											key={_id}
+											_id={_id}
+											name={name}
+											image={image}
+											points={points}
+											goals={goals}
+											numOfGames={numOfGames}
+											index={index}
+										/>
+									))}
+							</div>
 						</div>
-						<div className="championship__container">
-							{leagueResult ? <div>render Champion</div> : <div>No champion</div>}
+						<div className="section-padding">
+							<div className="championship__container">
+								{!leagueResult.length ? <div>No champion</div> : <div>Render Champion result</div>}
+							</div>
 						</div>
 					</div>
 				</main>

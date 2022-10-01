@@ -13,3 +13,4 @@ export const getLeagueStatus = () => API.get(`leagues/status`);
 export const startLeague = () => API.get(`leagues/start-league`);
 export const getLeagueResult = () => API.get(`leagues/result`);
 export const startGame = (team1, team2) => API.get(`games/start-game?team1=${team1}&team2=${team2}`);
+export const startChampionship = (team1, team2) => API.get(`leagues/final?team1=${team1}&team2=${team2}`);

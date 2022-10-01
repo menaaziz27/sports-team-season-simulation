@@ -16,6 +16,10 @@ const teamSchema = new Schema(
 			type: Number,
 			default: 0,
 		},
+		finalGoals: {
+			type: Number,
+			default: 0,
+		},
 		numOfGames: {
 			type: Number,
 			default: 0,
