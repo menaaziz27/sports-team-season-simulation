@@ -19,7 +19,7 @@ app.use(cors({ origin: true, credentials: true }));
 require('./services/passportLocalStrategy');
 require('./services/jwtStrategy');
 
-app.use(require('./routes'));
+app.use('/api', require('./routes'));
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '/client//build')));
