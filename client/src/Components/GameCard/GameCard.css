@@ -1,0 +1,68 @@
+.game__card {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: var(--dark-black);
+	color: #fff;
+	border-radius: 4px;
+	padding: 10px;
+	cursor: pointer;
+	user-select: none;
+	overflow: hidden;
+	flex-wrap: wrap;
+	height: 80px;
+	font-size: 30px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+	.game__card {
+		font-size: 22px;
+	}
+}
+@media (max-width: 550px) {
+	.game__card {
+		font-size: 16px;
+	}
+}
+@media (max-width: 500px) {
+	.game__card__img {
+		display: none;
+	}
+}
+
+.item {
+	flex: 1 1 0;
+	width: 0;
+}
+
+.game__card__left,
+.game__card__right {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+	font-weight: 700;
+	gap: 5px;
+}
+.game__card__mid {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+	font-weight: 700;
+}
+
+.game__card__score {
+	color: var(--light-green);
+}
+
+.game__card__dots {
+	color: var(--light-purple);
+}
+
+.game__card__img {
+	max-width: 200px;
+	max-height: 60px;
+	margin: 0 auto;
+}
