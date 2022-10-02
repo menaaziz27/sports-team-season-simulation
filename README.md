@@ -7,7 +7,7 @@ A web application that simulates soccer league with final championship game at a
 1. git clone `https://github.com/menaaziz27/sports-team-season-simulation.git`
 2. `npm install`
 3. create **_.env_** file with that attributes in **_.env.example_**
-4. `npm run import:data`
+4. `npm run data:import`
 5. `npm start`
 6. in a new terminal run `cd client && npm start`
 
