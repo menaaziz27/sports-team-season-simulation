@@ -6,20 +6,27 @@ exports.startGame = async (team1, team2) => {
 	const team2Obj = {};
 
 	// assuming that power scale is 100 so the sum of both teams is 200
-	const propOfTeam1 = +String(team1.overall_power / 200).slice(1, 3); // 0.2
+	const SUM_OF_BOTH_TEAMS = 200;
+
+	const propOfTeam1 = +String(team1.overall_power / SUM_OF_BOTH_TEAMS).slice(1, 3); // 80/200 -> 0.4
 	team1Obj.propToWin = propOfTeam1;
 	team1Obj.bottom = 0;
 	team1Obj.peek = propOfTeam1;
 
-	const propOfTeam2 = +String(team2.overall_power / 200).slice(1, 3); // 0.4
+	const propOfTeam2 = +String(team2.overall_power / SUM_OF_BOTH_TEAMS).slice(1, 3); // 40/200 -> 0.2
 	team2Obj.propToWin = propOfTeam2;
 	team2Obj.bottom = team1Obj.peek;
 	team2Obj.peek = +(team1Obj.peek + propOfTeam2).toFixed(1);
 
-	// if team1 propbabilty is higher than team2 -> team1 might win
+	// 0.4 is the prop of team1 to win.
+	// 0.2 is the prop of team2 to win.
+	// 0.6 to win someone of them.
+	// the rest (0.4) is the prop of both teams to draw.
+
 	const game = new Game();
 	game.team1 = team1._id;
 	game.team2 = team2._id;
+
 	const rand = Math.random();
 	if (isBetween({ num1: team1Obj.bottom, num2: team1Obj.peek, target: rand })) {
 		// team1 may win
@@ -30,7 +37,6 @@ exports.startGame = async (team1, team2) => {
 		game.team1_goals = team1goals;
 		game.team2_goals = team2goals;
 
-		// team obj
 		team1.games.push(game);
 		team1.goals += team1goals;
 		team1.points += 3;

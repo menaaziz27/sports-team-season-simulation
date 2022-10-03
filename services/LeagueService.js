@@ -14,7 +14,6 @@ exports.startLeague = async teams => {
 				continue;
 			}
 
-			// start game between both
 			const gameResult = await startGame(team1, team2);
 			allmatches.push(gameResult);
 		}

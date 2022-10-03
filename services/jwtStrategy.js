@@ -14,7 +14,6 @@ const cookieExtractor = req => {
 	return token;
 };
 
-// JWT strategy
 const jwtLogin = new JwtStrategy(
 	{
 		jwtFromRequest: cookieExtractor,

@@ -16,7 +16,6 @@ const passportLogin = new localStrategy(
 				return done(null, false, { message: 'Email does not exists.' });
 			}
 
-			// match his pw
 			const isMatch = await bcrypt.compare(password, user.password);
 			if (!isMatch) {
 				return done(null, false, { message: 'password incorrect' });
