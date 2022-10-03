@@ -8,8 +8,7 @@ A web application that simulates soccer league with final championship game at a
 2. `npm install`
 3. create **_.env_** file with that attributes in **_.env.example_**
 4. `npm run data:import`
-5. `npm start`
-6. in a new terminal run `cd client && npm start`
+5. `npm run dev`
 
 ### Features
 
@@ -27,6 +26,7 @@ A web application that simulates soccer league with final championship game at a
 - [ ] Get players belong to a specific team.
 - [ ] Get player details.
 - [ ] Get all games of a specific team.
-- [ ] Create a relation between users and leagues
+- [ ] Create a relation between users and leagues.
+- [ ] Paginate **games** page
 
 Check it out here -> [Demo](https://soccer-simulation.herokuapp.com)
